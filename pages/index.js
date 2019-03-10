@@ -1,8 +1,6 @@
 import Page from "../components/page";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../static/css/page.css";
-import "../static/css/centerpane.css";
-import "../static/css/halfpane.css";
+import CSS from '../utils/css';
 
 const CenterPane = Page;
 const HalfPane = Page;
