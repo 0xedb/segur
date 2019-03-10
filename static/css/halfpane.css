@@ -1,0 +1,11 @@
+.half { 
+    width: 90%;
+    height: 90%;     position: static;
+    border: 2px solid rgb(236, 46, 46); 
+    left: 50%;
+    top: 50%;
+    justify-content: center;
+    align-items: center; 
+    text-align: center; 
+    margin: auto;
+} 

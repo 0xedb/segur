@@ -6,6 +6,7 @@
   "license": "MIT",
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
+    "bootstrap": "^4.3.1",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "firebase-admin": "^7.0.0",
@@ -18,15 +19,11 @@
     "react-dom": "^16.8.3",
     "react-typist": "^2.0.5",
     "scrypt": "^6.0.3",
-    "spectre.css": "^0.5.8",
     "webpack": "^4.29.6"
   },
   "scripts": {
-    "dev": "next",
+    "dev": "nodemon server/server.js",
     "build": "next build",
     "start": "next start"
   }
 }
-
-
- 
