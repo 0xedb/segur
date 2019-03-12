@@ -1,7 +1,16 @@
+@import 'page.css';
+
 img {
     display: block;
-    padding-top: 10%;
     margin-left: auto;
     margin-right: auto;
-    width: 40%;
+    width: 100%;
+}
+
+#centered {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
 }

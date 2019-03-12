@@ -1,10 +1,18 @@
 import Page from "../components/page";
 import "bootstrap/dist/css/bootstrap.min.css";
-import '../static/css/api.css';
+import "../static/css/api.css";  
+
+const CenterPane = Page;
 
 const Api = props => (
   <Page title={props.title} className="page container-fluid">
-    <img alt="api image" src="static/img/working.gif" source='https://i.imgur.com/CVpc7nD.gif' />
+    <CenterPane id="centered">
+      <img
+        alt="api image"
+        src="static/img/working.gif"
+        source="https://i.imgur.com/CVpc7nD.gif"
+      />
+    </CenterPane>
   </Page>
 );
 

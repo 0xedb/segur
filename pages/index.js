@@ -1,6 +1,8 @@
 import Page from "../components/page";
+import Login from "../components/login";
+import Verify from "../components/verify";
 import "bootstrap/dist/css/bootstrap.min.css";
-import CSS from '../utils/css';
+import CSS from "../utils/css";
 
 const CenterPane = Page;
 const HalfPane = Page;
@@ -8,8 +10,12 @@ const HalfPane = Page;
 const Index = props => (
   <Page title={props.title} className="page container-fluid">
     <CenterPane id="center">
-      <HalfPane className="half">One</HalfPane>
-      <HalfPane className="half">Two</HalfPane>
+      <HalfPane className="half">
+        <Verify />
+      </HalfPane>
+      <HalfPane className="half">
+        <Login />
+      </HalfPane>
     </CenterPane>
   </Page>
 );
