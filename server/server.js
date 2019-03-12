@@ -16,10 +16,11 @@ app
     const server = express();
 
     server.post('/api', (req, res) => {
-      res.json({
+      res.status(200).json({
         you: `${randomWords()}`
       });
     });
+
 
     server.get("*", (req, res) => {
       return handle(req, res);
