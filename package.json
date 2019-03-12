@@ -24,6 +24,9 @@
   "scripts": {
     "dev": "nodemon server/server.js",
     "build": "next build",
-    "start": "next start"
+    "start": "node server/server.js"
+  },
+  "engines": {
+    "node": "10.x"
   }
 }
