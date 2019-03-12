@@ -2,6 +2,7 @@ const init = require("../init");
 const express = require("express");
 const next = require("next");
 const randomWords = require('random-words');
+const os = require('os');
 
 const port = process.env.SEGUR_PORT || 3000;
 const dev = process.env.SEGUR_STATE !== "production";
@@ -28,7 +29,7 @@ app
 
     server.listen(port, err => {
       if (err) console.log(err);
-      console.log(`Segur's ON: \t http://localhost:${port}`);
+      console.log(`Segur's ON: \t ${os.hostname()}:${port}`);
     });
   })
   .catch(err => {
