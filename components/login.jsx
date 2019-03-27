@@ -7,6 +7,7 @@ const Login = () => (
       <div className="form-group">
         <input type="password" placeholder="password" />
       </div>
+      <button type='button'>Login</button>
     </form>
   </div>
 );

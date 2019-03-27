@@ -1,8 +1,9 @@
 const init = require("../init");
 const express = require("express");
 const next = require("next");
-const randomWords = require('random-words');
 const os = require('os');
+const access_routes = require('./routes/access');
+const api_routes = require('./routes/api');
 
 const port = process.env.SEGUR_PORT || 3000;
 const dev = process.env.SEGUR_STATE !== "production";
@@ -16,11 +17,8 @@ app
   .then(() => {
     const server = express();
 
-    server.post('/api', (req, res) => {
-      res.status(200).json({
-        you: `${randomWords()}`
-      });
-    });
+    server.use('/', access_routes);
+    server.use('/', api_routes);
 
 
     server.get("*", (req, res) => {

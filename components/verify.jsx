@@ -1,12 +1,13 @@
 import { Component } from "react";
-import Typist from 'react-typist'; 
-import '../static/css/verify.css';
+import Typist from "react-typist";
+import "../static/css/verify.css";
 
 export default class Verify extends Component {
   state = { showVerify: false };
 
   clickHandler() {
-    this.setState({ showVerify: true });
+    console.log("hey");
+    this.setState({ showVerify: this.state.showVerify ? false : true });
   }
 
   render() {
@@ -21,6 +22,9 @@ export default class Verify extends Component {
               <i className="icon icon-upload" /> Upload from computer
             </button>
           </div>
+          <button onClick={this.clickHandler.bind(this)} type="button">
+            Done
+          </button>
         </div>
       );
     } else
@@ -33,7 +37,7 @@ export default class Verify extends Component {
             <span> King </span>
           </Typist>
           <div>
-            <button clickHandler={this.clickHandler} type="button">
+            <button onClick={this.clickHandler.bind(this)} type="button">
               Show Verify
             </button>
           </div>
