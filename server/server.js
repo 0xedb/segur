@@ -1,15 +1,14 @@
 const init = require("../init");
 const express = require("express");
 const next = require("next");
-const os = require('os');
-const access_routes = require('./routes/access');
-const api_routes = require('./routes/api');
+const os = require("os");
+const access_routes = require("./routes/access");
+const api_routes = require("./routes/api");
+const express_enforces_ssl = require("express-enforces-ssl");
 
 const port = process.env.SEGUR_PORT || 3000;
 const dev = process.env.SEGUR_STATE !== "production";
-const app = next({
-  dev
-});
+const app = next({dev});
 const handle = app.getRequestHandler();
 
 app
@@ -17,9 +16,14 @@ app
   .then(() => {
     const server = express();
 
-    server.use('/', access_routes);
-    server.use('/', api_routes);
+    // disable forced https on localhost
+    if (!dev) {
+      server.enable("trust proxy");
+      server.use(express_enforces_ssl());
+    }
 
+    server.use("/", access_routes);
+    server.use("/", api_routes);
 
     server.get("*", (req, res) => {
       return handle(req, res);

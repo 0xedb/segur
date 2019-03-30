@@ -9,6 +9,7 @@
     "bootstrap": "^4.3.1",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
+    "express-enforces-ssl": "^1.1.0",
     "firebase-admin": "^7.0.0",
     "hat": "^0.0.3",
     "next": "^8.0.3",
@@ -23,9 +24,8 @@
   },
   "scripts": {
     "dev": "nodemon server/server.js",
-    "build": "next build",
-    "heroku-postbuild": "next build",
-    "start": "node ./server/server.js -p $SEGUR_PORT"
+    "build": "next build", 
+    "start": "node server/server.js"
   },
   "engines": {
     "node": "10.x"

@@ -25,4 +25,4 @@ Index.getInitialProps = async () => ({
   className: `gradient page container-fluid`
 });
 
-export default Index;
+export default Index;  

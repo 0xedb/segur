@@ -4,7 +4,7 @@ const router = require('express').Router();
 
 router.post('/api', (req, res) => {
     res.status(200).json({
-        you: `${randomWords()}`
+        you: `${randomWords({exactly:5, wordsPerString:4})}`
     });
 });
 
