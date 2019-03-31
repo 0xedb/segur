@@ -8,7 +8,11 @@ const CenterPane = Page;
 const HalfPane = Page;
 
 const Index = props => (
-  <Page title={props.title} className={props.className} style={Stylesheet.gradient_finish}>
+  <Page
+    title={props.title}
+    className={props.className}
+    style={Stylesheet.gradient_finish}
+  >
     <CenterPane id="center">
       <HalfPane className="half">
         <Verify />
@@ -25,4 +29,4 @@ Index.getInitialProps = async () => ({
   className: `gradient page container-fluid`
 });
 
-export default Index;  
+export default Index;
