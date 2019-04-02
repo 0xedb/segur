@@ -1,6 +1,4 @@
-import "../static/css/page.css";
-import "../static/css/centerpane.css";
-import "../static/css/halfpane.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Stylesheet = {
   gradient_finish: {

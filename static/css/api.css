@@ -1,6 +1,6 @@
 @import 'page.css';
 
-img {
+#center_img {
     display: block;
     margin-left: auto;
     margin-right: auto;

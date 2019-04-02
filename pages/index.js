@@ -1,8 +1,7 @@
+import Stylesheet from "../utils/css";
 import Page from "../components/page";
 import Login from "../components/login";
 import Verify from "../components/verify";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Stylesheet from "../utils/css";
 
 const CenterPane = Page;
 const HalfPane = Page;
@@ -10,7 +9,7 @@ const HalfPane = Page;
 const Index = props => (
   <Page
     title={props.title}
-    className={props.className}
+    className={props.p_class}
     style={Stylesheet.gradient_finish}
   >
     <CenterPane id="center">
@@ -26,7 +25,7 @@ const Index = props => (
 
 Index.getInitialProps = async () => ({
   title: `Segur::Secure/Trustless/Transcript/Verification`,
-  className: `gradient page container-fluid`
+  p_class: `gradient page container-fluid`
 });
 
 export default Index;
