@@ -6,10 +6,11 @@ const access_routes = require("./routes/access");
 const api_routes = require("./routes/api");
 const express_enforces_ssl = require("express-enforces-ssl");
 const helmet = require("helmet");
+const bodyParser = require("body-parser");
 
 const port = process.env.SEGUR_PORT || 3000;
 const dev = process.env.SEGUR_STATE !== "production";
-const app = next({dev});
+const app = next({ dev });
 const handle = app.getRequestHandler();
 
 app
@@ -32,6 +33,7 @@ app
         })
       )
     );
+    server.use(bodyParser.json());
     server.use("/", access_routes);
     server.use("/", api_routes);
 

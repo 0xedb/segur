@@ -1,6 +1,9 @@
 .env
 node_modules
-delete
+00delete
 .next
 del.js
 .jshintrc
+.segur_account_key.json
+todo.txt
+yarn-error.log

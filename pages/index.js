@@ -1,4 +1,4 @@
-import Stylesheet from "../utils/css";
+import { gradient_finish } from "../utils/css";
 import Page from "../components/page";
 import Login from "../components/login";
 import Verify from "../components/verify";
@@ -7,11 +7,7 @@ const CenterPane = Page;
 const HalfPane = Page;
 
 const Index = props => (
-  <Page
-    title={props.title}
-    className={props.p_class}
-    style={Stylesheet.gradient_finish}
-  >
+  <Page title={props.title} className={props.p_class} style={gradient_finish}>
     <CenterPane id="center">
       <HalfPane className="half">
         <Verify />

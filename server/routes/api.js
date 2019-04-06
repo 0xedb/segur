@@ -1,6 +1,8 @@
 const randomWords = require('random-words');
-
 const router = require('express').Router();
+const cred = require("../routes/cred");
+
+router.use('/api', cred);
 
 router.post('/api', (req, res) => {
     res.status(200).json({

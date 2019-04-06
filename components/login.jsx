@@ -1,15 +1,31 @@
+import  "../static/css/login.css";
+import {verifyLogin} from "../utils/login";
+
+
+
 const Login = () => (
   <div>
-    <form>
+    <form id="lg_form">
       <div className="form-group">
-        <input type="email" placeholder="email" />
+        <input id="email" type="email" placeholder="email" required />
       </div>
       <div className="form-group">
-        <input type="password" placeholder="password" />
+        <input id="password" type="password" placeholder="password" required />
       </div>
-      <button type='button'>Login</button>
+      <button
+        id="lg_button"
+        className="btn btn-block"
+        type="submit"
+        onClick={verifyLogin}
+      >
+        Login
+      </button>
     </form>
   </div>
 );
+
+Login.getInitialProps = async => ({
+
+});
 
 export default Login;

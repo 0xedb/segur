@@ -1,5 +1,5 @@
 import Page from "../components/page";
-import Stylesheet from "../utils/css"; 
+import {gradient_finish} from "../utils/css"; 
 import "../static/css/api.css";
 
 
@@ -9,7 +9,7 @@ const Api = props => (
   <Page
     title={props.title}
     className="page container-fluid"
-    style={Stylesheet.gradient_finish}
+    style={gradient_finish}
   >
     <CenterPane id="centered">
       <img
