@@ -1,8 +1,10 @@
-const router = require('express').Router(); 
+const router = require('express').Router();  
 
-
-router.get('/access/:session_id', (req, res) => {
-    res.redirect('/');    
-});
+router.get('/access', (req, res) => { 
+    console.log(req.params); 
+    // res.send(req);
+    // res.redirect("/");
+    res.send(req.params);
+});  
 
 module.exports = router;

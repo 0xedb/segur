@@ -1,7 +1,17 @@
-import  "../static/css/login.css";
-import {verifyLogin} from "../utils/login";
+import "../static/css/login.css";
+// import { Component } from "react";
+import { verifyLogin } from "../utils/login";
 
+// class Logi extends Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {};
+//   }
 
+//   render() {
+//     return <div>d</div>;
+//   }
+// }
 
 const Login = () => (
   <div>
@@ -23,9 +33,5 @@ const Login = () => (
     </form>
   </div>
 );
-
-Login.getInitialProps = async => ({
-
-});
 
 export default Login;

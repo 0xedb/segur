@@ -1,6 +1,7 @@
 import axios from "axios";
 import $ from "jquery";
 import generatePbkdf2 from "./secure";
+import Router from "next/router";
 
 const verifyLogin = event => {
   event.preventDefault();
@@ -10,8 +11,13 @@ const verifyLogin = event => {
   const crypt = $("meta[name=crypt]").attr("content");
   const salt = crypt + email.val();
 
-  sendCredentials(generatePbkdf2(password.val(), salt), email.val());
+  // sendCredentials(generatePbkdf2(password.val(), salt), email.val());
   form.trigger("reset");
+  // window.location.href = "/access";
+  axios
+    .get("/api/access", { params: { user: "human" } })
+    .then((window.location.href = "/access"))
+    .catch(err => console.log(err));
 };
 
 const sendCredentials = (key, user) => {

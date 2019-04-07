@@ -1,9 +1,9 @@
 const init = require("../init");
 const express = require("express");
 const next = require("next");
-const os = require("os");
-const access_routes = require("./routes/access");
+const os = require("os"); 
 const api_routes = require("./routes/api");
+const access = require("./routes/access");
 const express_enforces_ssl = require("express-enforces-ssl");
 const helmet = require("helmet");
 const bodyParser = require("body-parser");
@@ -33,9 +33,9 @@ app
         })
       )
     );
-    server.use(bodyParser.json());
-    server.use("/", access_routes);
+    server.use(bodyParser.json()); 
     server.use("/", api_routes);
+    server.use("/", access);
 
     server.get("*", (req, res) => {
       return handle(req, res);

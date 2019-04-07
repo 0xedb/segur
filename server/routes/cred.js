@@ -3,7 +3,7 @@ const db = require("../../utils/data");
 const router = require("express").Router();
 const crypto = require("../../utils/crypto");
 
-const generateScrypt = crypto.generateScrypt;
+// const generateScrypt = crypto.generateScrypt;
 const validateHash = crypto.validateHash;
 
 router.post("/validate", (req, res) => {
