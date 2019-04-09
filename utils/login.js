@@ -11,13 +11,8 @@ const verifyLogin = event => {
   const crypt = $("meta[name=crypt]").attr("content");
   const salt = crypt + email.val();
 
-  // sendCredentials(generatePbkdf2(password.val(), salt), email.val());
+  sendCredentials(generatePbkdf2(password.val(), salt), email.val());
   form.trigger("reset");
-  // window.location.href = "/access";
-  axios
-    .get("/api/access", { params: { user: "human" } })
-    .then((window.location.href = "/access"))
-    .catch(err => console.log(err));
 };
 
 const sendCredentials = (key, user) => {
@@ -26,7 +21,7 @@ const sendCredentials = (key, user) => {
       hash: key,
       user: btoa(user)
     })
-    .then(response => console.log(`sent`))
+    .then(response => console.log(response.data))
     .catch(error => console.log(error));
 };
 

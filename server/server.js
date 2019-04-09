@@ -1,9 +1,8 @@
 const init = require("../init");
 const express = require("express");
 const next = require("next");
-const os = require("os"); 
-const api_routes = require("./routes/api");
-const access = require("./routes/access");
+const os = require("os");
+const api = require("./routes/api");
 const express_enforces_ssl = require("express-enforces-ssl");
 const helmet = require("helmet");
 const bodyParser = require("body-parser");
@@ -12,12 +11,11 @@ const port = process.env.SEGUR_PORT || 3000;
 const dev = process.env.SEGUR_STATE !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
+const server = express();
 
 app
   .prepare()
   .then(() => {
-    const server = express();
-
     // disable forced https in development
     if (!dev) {
       server.enable("trust proxy");
@@ -33,9 +31,20 @@ app
         })
       )
     );
-    server.use(bodyParser.json()); 
-    server.use("/", api_routes);
-    server.use("/", access);
+    server.use(bodyParser.json());
+    server.use(bodyParser.urlencoded({ extended: true }));
+    server.use("/", api);
+
+
+    // remove asap
+    server.get('/joke', (req, res) => {
+      res.json({"it's": "a joke"});
+    });
+    
+
+    server.get('/access', (req, res) => {
+      return app.render(req, res, '/access', {id: "I love you forever"});
+    });
 
     server.get("*", (req, res) => {
       return handle(req, res);

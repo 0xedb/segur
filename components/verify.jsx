@@ -3,7 +3,12 @@ import Typist from "react-typist";
 import "../static/css/verify.css";
 
 export default class Verify extends Component {
-  state = { showVerify: false };
+  constructor(props) {
+    super(props);
+    this.state = {
+      showVerify: false
+    };
+  } 
 
   clickHandler() {
     console.log("hey");
@@ -37,7 +42,7 @@ export default class Verify extends Component {
             <span> King </span>
           </Typist>
           <div>
-            <button onClick={this.clickHandler.bind(this)} type="button">
+            <button id="lg_button" onClick={this.clickHandler.bind(this)} type="button">
               Show Verify
             </button>
           </div>

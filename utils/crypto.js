@@ -16,8 +16,7 @@ const hashSaltPair = password => {
   return generateScrypt(generatePbkdf2(password));
 };
 
-const validateHash = (hash, key, salt) => {
-//   const key = generatePbkdf2(password);
+const validateHash = (hash, key, salt) => { 
   return hash === generateScrypt(key, salt).hash ? true : false;
 };
 
