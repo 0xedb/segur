@@ -1,7 +1,6 @@
 import axios from "axios";
 import $ from "jquery";
-import generatePbkdf2 from "./secure";
-import Router from "next/router";
+import generatePbkdf2 from "./secure"; 
 
 const verifyLogin = event => {
   event.preventDefault();
@@ -21,8 +20,13 @@ const sendCredentials = (key, user) => {
       hash: key,
       user: btoa(user)
     })
-    .then(response => console.log(response.data))
+    .then(response => handleNavigation(response.data))
     .catch(error => console.log(error));
+};
+
+const handleNavigation = decision => {
+  if (decision) window.location.href = "/access";
+  else alert("Wrong");
 };
 
 export { verifyLogin };

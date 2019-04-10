@@ -7,3 +7,4 @@ del.js
 .segur_account_key.json
 todo.txt
 yarn-error.log
+.secrets.json

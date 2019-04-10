@@ -43,7 +43,8 @@ app
     
 
     server.get('/access', (req, res) => {
-      return app.render(req, res, '/access', {id: "I love you forever"});
+      
+      return app.render(req, res, '/access', {id: req.query.id});
     });
 
     server.get("*", (req, res) => {
