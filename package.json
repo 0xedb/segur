@@ -37,6 +37,7 @@
     "node": "10.x"
   },
   "devDependencies": {
+    "@editorjs/editorjs": "^2.12.4",
     "nodemon": "^1.18.10",
     "now": "^15.0.3"
   }

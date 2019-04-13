@@ -718,6 +718,11 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
+"@editorjs/editorjs@^2.12.4":
+  version "2.12.4"
+  resolved "https://registry.yarnpkg.com/@editorjs/editorjs/-/editorjs-2.12.4.tgz#3a98c907c0c0ff96bd667e5dd45e109ceb4d6a1a"
+  integrity sha512-5xevUVL+OvrhnVjaQARW7FlTtJhYPaUbs3Bft6+2PQ7Fvx5SquyrPPJomCdQA7+5uPAWQ8MtjxTVvSDPhujkYw==
+
 "@firebase/app-types@0.3.5":
   version "0.3.5"
   resolved "https://registry.yarnpkg.com/@firebase/app-types/-/app-types-0.3.5.tgz#b1d4c7ee0e6655bdcafb0ed3d560aea72f6b239d"

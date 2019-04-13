@@ -47,6 +47,12 @@ app
       return app.render(req, res, '/access', {id: req.query.id});
     });
 
+    server.get("/enroll/:type/:token", (req, res) => {
+      // do some validation
+      // res.send(req.params);
+      return app.render(req, res, '/enroll', {type: req.params.type});
+  });
+
     server.get("*", (req, res) => {
       return handle(req, res);
     });

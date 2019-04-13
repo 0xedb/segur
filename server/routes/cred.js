@@ -1,7 +1,8 @@
 const base64 = require("base-64");
-const db = require("../../utils/data");
+const {db} = require("../../utils/firebase");
 const router = require("express").Router();
 const crypto = require("../../utils/crypto");
+const jsonwebtoken = require("jsonwebtoken");
 
 const validateHash = crypto.validateHash;
 
@@ -20,9 +21,9 @@ const validateCred = (password, user, handler) => {
   db.collection("user")
     .doc(user)
     .get()
-    .then(snapshot => snapshot.data().credentials)
+    .then(snapshot => snapshot.data())
     .then(val =>
-      handler.send(handler.res, validateHash(val.hash, password, val.salt))
+      handler.send(handler.res, validateHash(val.credentials.hash, password, val.credentials.salt), val.type)
     )
     .catch(err => {
       handler.send(handler.res);
@@ -30,9 +31,12 @@ const validateCred = (password, user, handler) => {
     });
 };
 
-const sendResponse = (res = null, data = null) => {
+const sendResponse = (res = null, data = null, info = null) => {
   if (!data) return res.send(false);
-  return res.send(data);
+
+  // send jsonwebtoken for cookie creation
+  const token = jsonwebtoken.sign({data, info}, process.env.SEGUR_PASSPHRASE_KEY); 
+  return res.send({data, info});
 };
 
 module.exports = router;

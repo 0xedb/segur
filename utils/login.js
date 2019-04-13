@@ -20,7 +20,7 @@ const sendCredentials = (key, user) => {
       hash: key,
       user: btoa(user)
     })
-    .then(response => handleNavigation(response.data))
+    .then(response => console.log(response.data))
     .catch(error => console.log(error));
 };
 
