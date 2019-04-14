@@ -7,7 +7,4 @@ const EditorInit = () => {
   });
 };
 
-// export default EditorInit;
-//not used
-console.log('editor here');
-window.alert('meeeee');
+export { EditorInit };

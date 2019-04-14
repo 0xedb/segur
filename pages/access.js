@@ -1,24 +1,23 @@
-
 import { Component } from "react";
 
-class Access {
+class Access extends Component {
   constructor(props) {
     super(props);
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    const editor = require("../utils/editor");
+    editor.EditorInit();
+  }
 
   render() {
     return (
       <div>
         Hello
-        {props.id}
-        <div id="editor">...</div>
+        <div id="editor">{}</div>
       </div>
     );
   }
 }
-
-// Access.getInitialProps = async ({ query }) => ({ id: query.id });
 
 export default Access;
