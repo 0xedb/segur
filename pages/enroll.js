@@ -1,7 +1,9 @@
-import "../static/css/login.css";
-import { verifyLogin } from "../utils/login";
+import "../static/css/login.css"; 
 import { gradient_finish } from "../utils/css";
 import Page from "../components/page";
+import { signUp } from "../utils/signup";
+
+const CenterPane = Page;
 
 const Enroll = props => (
   <Page title={props.title} className={props.p_class} style={gradient_finish}>
@@ -26,9 +28,9 @@ const Enroll = props => (
             id="lg_button"
             className="btn btn-block"
             type="submit"
-            onClick={console.log("clicked!")}
+            onClick={signUp}
           >
-            Login
+            Register
           </button>
         </form>
       </div>

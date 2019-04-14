@@ -1,11 +1,11 @@
-// import EditorJS from "@editorjs/editorjs";
+import EditorJs from "@editorjs/editorjs";
 
-// const EditorInit = () => {
-//   const editor = new EditorJS({
-//     holderId: "editor",
-//     onReady: () => console.log("editor is ready!")
-//   });
-// };
+const EditorInit = () => {
+  const editor = new EditorJs({
+    holderId: "editor",
+    onReady: () => console.log("editor is ready!")
+  });
+};
 
 // export default EditorInit;
 //not used

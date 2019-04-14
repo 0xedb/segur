@@ -6,12 +6,7 @@ class Editor extends Component {
   }
 
   componentDidMount() {
-    const EditorJs = '../utils/editor.js';
-    console.log("done mounting");
-    const editor = new EditorJs({
-      holderId: "editor",
-      onReady: () => console.log("editor is ready!")
-    });
+    
   }
 
   render() {

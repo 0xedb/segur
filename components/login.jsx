@@ -1,5 +1,6 @@
 import "../static/css/login.css";
-import { verifyLogin } from "../utils/login";
+import { verifyLogin } from "../00delete/login";
+import { signIn } from "../utils/signin";
 
 const Login = () => (
   <div>
@@ -14,7 +15,7 @@ const Login = () => (
         id="lg_button"
         className="btn btn-block"
         type="submit"
-        onClick={verifyLogin}
+        onClick={signIn}
       >
         Login
       </button>

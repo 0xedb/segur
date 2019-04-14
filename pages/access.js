@@ -1,13 +1,24 @@
-import Editor from "../components/editor";
 
-const Access = props => (
-  <div>
-    Hello
-    {props.id}
-    <Editor />
-  </div>
-);
+import { Component } from "react";
 
-Access.getInitialProps = async ({ query }) => ({ id: query.id });
+class Access {
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {}
+
+  render() {
+    return (
+      <div>
+        Hello
+        {props.id}
+        <div id="editor">...</div>
+      </div>
+    );
+  }
+}
+
+// Access.getInitialProps = async ({ query }) => ({ id: query.id });
 
 export default Access;

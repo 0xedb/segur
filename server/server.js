@@ -34,24 +34,18 @@ app
     server.use(bodyParser.json());
     server.use(bodyParser.urlencoded({ extended: true }));
     server.use("/", api);
-
-
-    // remove asap
-    server.get('/joke', (req, res) => {
-      res.json({"it's": "a joke"});
-    });
-    
+     
 
     server.get('/access', (req, res) => {
       
       return app.render(req, res, '/access', {id: req.query.id});
     });
 
-    server.get("/enroll/:type/:token", (req, res) => {
-      // do some validation
-      // res.send(req.params);
-      return app.render(req, res, '/enroll', {type: req.params.type});
-  });
+  //   server.get("/enroll/:type/:token", (req, res) => {
+  //     // do some validation
+  //     // res.send(req.params);
+  //     return app.render(req, res, '/enroll', {type: req.params.type});
+  // });
 
     server.get("*", (req, res) => {
       return handle(req, res);
