@@ -1,4 +1,5 @@
 import { Component } from "react";
+import "../static/css/editor.css";
 
 class Access extends Component {
   constructor(props) {
@@ -12,8 +13,7 @@ class Access extends Component {
 
   render() {
     return (
-      <div>
-        Hello
+      <div id="transcript"> 
         <div id="editor">{}</div>
       </div>
     );
