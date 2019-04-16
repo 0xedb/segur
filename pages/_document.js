@@ -1,5 +1,5 @@
 import Document, { Head, Main, NextScript } from "next/document";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 class SegurPage extends Document {
   render() {
     return (

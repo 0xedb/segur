@@ -1,8 +1,11 @@
 {
-    "name": "segur", 
-    "version": 1,
-    "env": {
-
-    }
-
+  "name": "segur",
+  "version": 1,
+  "env": {
+    "SEGUR_PORT": "9000",
+    "SEGUR_STATE": "development",
+    "SEGUR_DATABASE_URL": "https://segur-db.firebaseio.com",
+    "SEGUR_ACCOUNT_KEY": "../.segur_account_key.json ",
+    "SEGUR_PASSPHRASE_KEY": "segur_is~quite*secure"
+  }
 }

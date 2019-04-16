@@ -1,12 +1,16 @@
-import "../static/css/login.css"; 
+import "../static/css/login.css";
 import { gradient_finish } from "../utils/css";
 import Page from "../components/page";
 import { signUp } from "../utils/signup";
 
-const CenterPane = Page;
+const CenterPane = Page;  
 
 const Enroll = props => (
-  <Page title={props.title} className={props.p_class} style={gradient_finish}>
+  <Page
+    title="Segur::Enroll"
+    className="gradient page container-fluid"
+    style={gradient_finish}
+  >
     <CenterPane id="center">
       <div>
         <form id="lg_form">
@@ -34,8 +38,15 @@ const Enroll = props => (
           </button>
         </form>
       </div>
+      <div id="user" hidden>
+        {props.type}
+      </div> 
     </CenterPane>
   </Page>
 );
+
+Enroll.getInitialProps = async ({ query }) => { 
+  return { type: query.type };
+};
 
 export default Enroll;

@@ -1,23 +1,10 @@
-import { Component } from "react";
-import "../static/css/editor.css";
+import Editor from "../components/editor";
+import AuthPage from "../components/AuthPage";
 
-class Access extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  componentDidMount() {
-    const editor = require("../utils/editor");
-    editor.EditorInit();
-  }
-
-  render() {
-    return (
-      <div id="transcript"> 
-        <div id="editor">{}</div>
-      </div>
-    );
-  }
-}
+const Access = () => (
+  <AuthPage>
+    <Editor />
+  </AuthPage>
+);
 
 export default Access;

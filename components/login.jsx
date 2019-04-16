@@ -1,5 +1,4 @@
 import "../static/css/login.css";
-import { verifyLogin } from "../00delete/login";
 import { signIn } from "../utils/signin";
 
 const Login = () => (

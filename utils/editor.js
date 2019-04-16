@@ -92,6 +92,8 @@ const EditorInit = () => {
       }
     }
   });
+
+  return editor;
 };
 
 export { EditorInit };

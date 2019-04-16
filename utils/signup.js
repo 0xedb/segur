@@ -1,4 +1,4 @@
-import { auth } from "./firebase";
+import { auth, firestore } from "./firebase";
 import $ from "jquery";
 
 const signUp = event => {
@@ -10,15 +10,32 @@ const signUp = event => {
   const email = $("#email").val();
   const password = $("#password").val();
 
-  doSignUp({ email, password });
+  doSignUp({ email, password, name });
   form.trigger("reset");
 };
 
 const doSignUp = cred => {
-  console.log(cred.email);
+  /**
+   * 
+   *      do validation here  like 
+   *      check if user type is valid with array
+   *      etc
+   * 
+   * 
+   */
+
+
   auth
     .createUserWithEmailAndPassword(cred.email, cred.password)
-    .then(res => console.log(res))
+    .then(res => {
+      firestore
+        .collection("users")
+        .doc(res.user.uid)
+        .set({
+          name: cred.name,
+          type: document.querySelector("#user").textContent
+        });
+    })
     .catch(function(error) {
       // Handle Errors here.
       var errorCode = error.code;
