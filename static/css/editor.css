@@ -1,8 +1,9 @@
 #editor {
-    background-color: #619c58b5; 
-    margin: 10% 10% 3% 20%;
+  background-color: #4a4a4ab5;
+  margin: 2% 10% 2% 10%;
+  color: white;
 }
 
-#editor-options { 
-    margin: 3% 10% 10% 20%;
+#editor-options {
+  margin: 3% 10% 10% 20%;
 }

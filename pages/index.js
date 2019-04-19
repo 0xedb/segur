@@ -8,7 +8,7 @@ const HalfPane = Page;
 
 const Index = props => (
   <Page title={props.title} className={props.p_class} style={gradient_finish}>
-    <CenterPane id="center">
+    <CenterPane id="center-landing">
       <HalfPane className="half">
         <Verify />
       </HalfPane>

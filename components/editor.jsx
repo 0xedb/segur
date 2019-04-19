@@ -1,5 +1,6 @@
 import "../static/css/editor.css";
 import React, { Component } from "react";
+import { firestore } from "../utils/firebase";
 
 let ejs = () => {};
 class Editor extends Component {
@@ -12,12 +13,21 @@ class Editor extends Component {
     ejs = editor.EditorInit();
   }
 
+  finalizeTranscript = () => {
+    this.saveData();
+  };
+
   saveData = () => {
     ejs
       .save()
       .then(outputData => {
         console.log("Article data: ", outputData);
-        alert("saved");
+        firestore
+          .collection("transcript")
+          .doc("student")
+          .set({
+            data: outputData
+          });
       })
       .catch(error => {
         console.log("Saving failed: ", error);
@@ -33,10 +43,19 @@ class Editor extends Component {
             <input id="email" type="email" placeholder="email" required />
             <input id="name" type="text" placeholder="name" required />
           </div>
-          <button type="button" className="btn btn-primary btn-lg" onClick={this.saveData}>
+          <button
+            type="button"
+            className="btn btn-primary btn-lg"
+            onClick={this.saveData}
+            hidden
+          >
             Save
           </button>
-          <button type="button" className="btn btn-primary btn-lg">
+          <button
+            type="button"
+            className="btn btn-primary btn-lg"
+            onClick={this.finalizeTranscript}
+          >
             Finalize
           </button>
         </div>

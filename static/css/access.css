@@ -1,0 +1,13 @@
+#center-alt {
+    display: grid;
+    grid-template-columns: 10% 90%;
+    grid-template-rows: 100%;
+    position: absolute; 
+    height: 90%;
+    width: 90%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);  
+    border-radius: 10px;   
+    background-color: #000c;
+}

@@ -1,5 +1,6 @@
 import { auth } from "./firebase";
 import $ from "jquery";
+import axios from "axios";
 
 const signIn = event => {
   event.preventDefault();
@@ -19,7 +20,13 @@ const doSignIn = cred => {
     .signInWithEmailAndPassword(cred.email, cred.password)
     .then(res => {
       console.log(res);
-      window.location.href="/access";
+      axios
+        .get("/access", {
+          user: res.user
+        })
+        .then()
+        .catch(err => console.log(err));
+      // window.location.href="/access";
     })
     .catch(function(error) {
       // Handle Errors here.
@@ -32,6 +39,7 @@ const doSignIn = cred => {
       }
       console.log(error);
     });
+  // console.log(auth.currentUser);
 };
 
 export { signIn };
