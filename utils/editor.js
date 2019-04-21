@@ -15,7 +15,7 @@ import InlineCode from  "@editorjs/inline-code";
 
  
 
-const EditorInit = () => {
+const EditorInit = (data) => {
   const editor = new EditorJs({
     /**
      * Id of Element that should contain Editor instance
@@ -90,7 +90,7 @@ const EditorInit = () => {
         inlineToolbar: true,
         shortcut: "CMD+ALT+T"
       }
-    }
+    }, data :  data ? data : ''
   });
 
   return editor;

@@ -4,7 +4,6 @@ import axios from "axios";
 
 const signIn = event => {
   event.preventDefault();
-  console.log("...logging in!");
   event.preventDefault();
   const form = $("#lg_form");
   const email = $("#email").val();
@@ -15,15 +14,12 @@ const signIn = event => {
 };
 
 const doSignIn = cred => {
-  console.log(cred.email);
   auth
     .signInWithEmailAndPassword(cred.email, cred.password)
     .then(res => {
-      console.log(res);
+      const user = res.user.uid;
       axios
-        .get("/access", {
-          user: res.user
-        })
+        .get("/access", { params: { user } })
         .then()
         .catch(err => console.log(err));
       // window.location.href="/access";

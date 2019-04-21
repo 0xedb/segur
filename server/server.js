@@ -36,13 +36,12 @@ app
     server.use("/", api);
 
     server.get("/access", (req, res) => {
-      console.log(req.body);
-      console.log("***************************", req.params);
-      // return app.render(req, res, "/access", { id: req.query.id });
+      const user = req.query.user; 
+      return app.render(req, res, "/access", { user });
     });
 
     server.get("/enroll/:type/:token", (req, res) => {
-      //check token 
+      //check token
       // console.log(req.params.type);
       return app.render(req, res, "/enroll", { type: req.params.type });
     });

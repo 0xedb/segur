@@ -11,3 +11,8 @@
     border-radius: 10px;   
     background-color: #000c;
 }
+
+img {
+    width: 50%;
+    height: 50%;
+}

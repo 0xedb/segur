@@ -1,6 +1,7 @@
 import "../static/css/editor.css";
 import React, { Component } from "react";
-import { firestore } from "../utils/firebase";
+import { database } from "../utils/firebase";
+import $ from "jquery";
 
 let ejs = () => {};
 class Editor extends Component {
@@ -10,7 +11,9 @@ class Editor extends Component {
 
   componentDidMount() {
     const editor = require("../utils/editor");
-    ejs = editor.EditorInit();
+    console.log('data', this.props.data);
+    ejs = editor.EditorInit(this.props.data);
+    $("#editor").css({pointerEvents:'none'});
   }
 
   finalizeTranscript = () => {
@@ -21,13 +24,19 @@ class Editor extends Component {
     ejs
       .save()
       .then(outputData => {
-        console.log("Article data: ", outputData);
-        firestore
-          .collection("transcript")
-          .doc("student")
-          .set({
-            data: outputData
-          });
+        let email = $("#email").val();
+        let name = $("#name").val();
+
+        if (email && name) {
+          database
+            .ref("transcripts/" + "test")
+            .set({ data: outputData, info: {email, name} })
+            .then(alert("saved"))
+            .catch(err => console.log(err));
+
+          ejs.clear();
+        }
+ 
       })
       .catch(error => {
         console.log("Saving failed: ", error);
@@ -38,27 +47,31 @@ class Editor extends Component {
     return (
       <div id="transcript">
         <div id="editor">{}</div>
-        <div id="editor-options">
-          <div>
-            <input id="email" type="email" placeholder="email" required />
-            <input id="name" type="text" placeholder="name" required />
+        {this.props.readonly ? (
+          ""
+        ) : (
+          <div id="editor-options">
+            <div>
+              <input id="email" type="email" placeholder="email" required />
+              <input id="name" type="text" placeholder="name" required />
+            </div>
+            <button
+              type="button"
+              className="btn btn-primary btn-lg"
+              onClick={this.saveData}
+              hidden
+            >
+              Save
+            </button>
+            <button
+              type="button"
+              className="btn btn-primary btn-lg"
+              onClick={this.finalizeTranscript}
+            >
+              Finalize
+            </button>            
           </div>
-          <button
-            type="button"
-            className="btn btn-primary btn-lg"
-            onClick={this.saveData}
-            hidden
-          >
-            Save
-          </button>
-          <button
-            type="button"
-            className="btn btn-primary btn-lg"
-            onClick={this.finalizeTranscript}
-          >
-            Finalize
-          </button>
-        </div>
+        )}
       </div>
     );
   }
