@@ -3,8 +3,9 @@ import React, { Component } from "react";
 import { database } from "../utils/firebase";
 import $ from "jquery";
 
-let ejs = () => {};
+let ejs;
 let transcript_data;
+let editor;
 
 class Editor extends Component {
   constructor(props) {
@@ -14,10 +15,14 @@ class Editor extends Component {
     };
   }
 
+  // componentWillMount() {
+  //   editor = require("../utils/editor");
+  //   ejs = editor.EditorInit(this.state.load || this.props.data);
+  // }
+
   componentDidMount() {
-    const editor = require("../utils/editor");
-    console.log("data", this.props.data);
-    ejs = editor.EditorInit(this.props.data);
+    editor = require("../utils/editor");
+    ejs = editor.EditorInit(this.state.load || this.props.data);
     if (!this.props.type) $("#editor").css({ pointerEvents: "none" });
   }
 
@@ -27,31 +32,51 @@ class Editor extends Component {
 
   loadTranscript = () => {
     console.log("loading.....");
+    $("#editor").empty();
     let email = $("#email")
       .val()
       .replace(".", "-");
-    database.ref("transcripts/" + "test").on("value", snapshot => {
-      const transcript_data = snapshot.val().data;
-    });
+    if (email) {
+      database.ref("transcripts/" + email).on("value", snapshot => {
+        try {
+          this.setState({ load: snapshot.val().data });
+        } catch (err) {
+          alert("no such user");
+        }
+        ejs = editor.EditorInit(this.state.load);
+        // $("#editor").empty();
+        // ejs.clear();
+        // editor.EditorInit(this.state.load || this.props.data);
+        // editor.EditorInit(snapshot.val().data);
+        // console.log(snapshot.val());
+      });
+    }
   };
 
   saveData = () => {
     ejs
       .save()
       .then(outputData => {
+        console.log(outputData);
         let email = $("#email")
           .val()
           .replace(".", "-");
         let name = $("#name").val();
 
-        if (email && name) {
+        if (email) {
           database
             .ref("transcripts/" + email)
-            .set({ data: outputData, info: { name } })
-            .then(alert("saved"))
+            .set({ data: outputData, info: name })
+            .then(res => {
+              console.log("saving....................");
+              alert("saved");
+              $("#editor").empty();
+              ejs = editor.EditorInit();
+              // location.reload();
+            })
             .catch(err => console.log(err));
 
-          ejs.clear();
+          // ejs.clear();
         }
       })
       .catch(error => {

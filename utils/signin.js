@@ -18,9 +18,11 @@ const doSignIn = cred => {
     .signInWithEmailAndPassword(cred.email, cred.password)
     .then(res => {
       const user = res.user.uid;
+      const user_type = res.user.displayName.split("__")[0];  
+
       axios
         .get("/access", { params: { user } })
-        .then()
+        .then(res => console.dir(res))
         .catch(err => console.log(err));
       // window.location.href="/access";
     })

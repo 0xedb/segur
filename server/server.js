@@ -36,8 +36,10 @@ app
     server.use("/", api);
 
     server.get("/access", (req, res) => {
-      const user = req.query.user; 
-      return app.render(req, res, "/access", { user });
+      console.dir(req);
+      res.send(req);
+      // const user = req.query.user; 
+      // return app.render(req, res, "/access", { user });
     });
 
     server.get("/enroll/:type/:token", (req, res) => {
