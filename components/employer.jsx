@@ -4,12 +4,13 @@ import Editor from "./editor";
 class EmployerPane extends Component {
   constructor(props) {
     super(props);
-    this.editor = <Editor readonly="readonly"  />; 
+    this.editor = <Editor readonly="readonly" loadable="loadable" />; 
   }
 
   render() {
     return (
       <div id="center-alt">
+        
         <div id="side-bar">
           <img id="" alt="logo" src="../static/img/segur_logo.svg" />
           {/* <button
@@ -19,7 +20,7 @@ class EmployerPane extends Component {
           >
             View Transcript
           </button> */}
-        </div> 
+        </div>  
         {this.editor}
       </div>
     );

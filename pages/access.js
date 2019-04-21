@@ -1,5 +1,4 @@
-import Page from "../components/page";
-// import Editor from "../components/editor";
+import Page from "../components/page"; 
 import AuthPage from "../components/authpage";
 import { gradient_finish } from "../utils/css";
 

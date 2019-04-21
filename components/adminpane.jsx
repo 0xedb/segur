@@ -4,7 +4,7 @@ import Editor from "./editor";
 class AdminPane extends Component {
   constructor(props) {
     super(props);
-    this.editor = <Editor />;
+    this.editor = <Editor type='admin' />;
     this.state = { active: this.editor };
   }
 
