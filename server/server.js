@@ -35,12 +35,12 @@ app
     server.use(bodyParser.urlencoded({ extended: true }));
     server.use("/", api);
 
-    server.get("/access", (req, res) => {
-      console.dir(req);
-      res.send(req);
-      // const user = req.query.user; 
-      // return app.render(req, res, "/access", { user });
-    });
+    // server.get("/access", (req, res) => {
+    //   // console.log("requested!!!!!!!!!!");
+    //   console.log(req.query);
+    //   return app.render(req, res, "/access", { data: req.query });
+    //   // return app.render(req, res, "/access");
+    // });
 
     server.get("/enroll/:type/:token", (req, res) => {
       //check token
@@ -48,11 +48,7 @@ app
       return app.render(req, res, "/enroll", { type: req.params.type });
     });
 
-    //   server.get("/enroll/:type/:token", (req, res) => {
-    //     // do some validation
-    //     // res.send(req.params);
-    //     return app.render(req, res, '/enroll', {type: req.params.type});
-    // });
+
 
     server.get("*", (req, res) => {
       return handle(req, res);

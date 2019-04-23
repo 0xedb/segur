@@ -50,7 +50,7 @@ class Editor extends Component {
         // editor.EditorInit(snapshot.val().data);
         // console.log(snapshot.val());
       });
-    }
+    } 
   };
 
   saveData = () => {
@@ -117,21 +117,21 @@ class Editor extends Component {
               onClick={this.saveData}
               hidden
             >
-              Save
+              Save Transcript
             </button>
             <button
               type="button"
               className="btn btn-primary btn-lg"
               onClick={this.finalizeTranscript}
             >
-              Finalize
+              Save
             </button>
             <button
               type="button"
               className="btn btn-primary btn-lg"
               onClick={this.loadTranscript}
             >
-              Load
+              Retrieve Transcript
             </button>
           </div>
         )}
